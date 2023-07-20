@@ -11,7 +11,7 @@ class ContackUsController extends BackEndController
 {
     public function __construct(ContactUs $model)
     {
-        parent::__construct($model );
+        parent::__construct($model, 'id' );
     }
     public function contact_us_count()
     {

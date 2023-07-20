@@ -23,7 +23,9 @@
                             <tr>
                             <th>#</th>
                             <th>الاسم</th>
-                            <th>الموبيل</th>
+                            <th>البريد</th>
+                            <th>الموضوع</th>
+                            <th>الرسالة</th>
                             <th></th>
                             </tr>
                         </thead>
@@ -32,7 +34,9 @@
                                  <tr>
                                     <td> {{$row_num++}}</td>
                                     <td>{{$item->name}}</td>
-                                    <td>{{$item->phone}}</td>
+                                    <td>{{$item->email}}</td>
+                                    <td>{{$item->subject}}</td>
+                                    <td>{{$item->message}}</td>
                                     <td>
                                         <form action="{{ route($routeName.'.destroy' , ['id' => $item]) }}" method="post">
                                             {{ csrf_field() }}

@@ -68,10 +68,10 @@
                     <i class="fa fa-user"></i><span> الموظفين</span><span class="badge badge-red contact_count" ></span>
             </a>
         </li>
-        <li class="{{is_active('clientreviews')}}">
-            <a href="{{route('clientreviews.index')}}"  class="{{is_active('clientreviews')}}">
+        <li class="{{is_active('contactuses')}}">
+            <a href="{{route('contactuses.index')}}"  class="{{is_active('contactuses')}}">
                     <i class="fa fa-
-                    paper"></i><span> اراء العملاء</span><span class="badge badge-red contact_count" ></span>
+                    paper"></i><span>تواصل معانا</span><span class="badge badge-red contact_count" ></span>
             </a>
         </li>
         <li class="{{is_active('jobs')}}">
