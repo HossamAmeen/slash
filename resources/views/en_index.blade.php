@@ -6,7 +6,7 @@
     <meta name="description" content="slash">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300|Raleway|Rochester&display=swap" rel="stylesheet">
-<link rel="shortcut icon" type="image/x-icon" href="images/Final Slash Presentation-logo.png')}}">
+<link rel="shortcut icon" type="image/x-icon" href="{{asset('images/Final Slash Presentation-logo.png')}}">
     <meta name="keywords" content="slash">
     <meta name="author" content="slash">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -122,78 +122,19 @@
             <h3>OUR SERVICES</h3>
         </div>
         <div class="row">
-            <div class="col-xl-3 content d-flex flex-column serv-box">
-                <div class="circle">
-                    <img src="{{asset('english/images/Group 4269.png')}}" alt="">
-                    <h5>PRODUCT MANAGEMENT</h5>
-                    <p>We are a group of youth working under one umbrella it allows everyone to experiment and get the best results under a
-                        modern administrative system</p>
+            
+            @foreach($services as $service)
+                <div class="col-xl-3 content d-flex flex-column serv-box">
+                    <div class="circle">
+                        <img src="{{asset($service->image)}}" alt="">
+                        <h5>{{$service->ar_name}}</h5>
+                        <p>{{$service->ar_description}}</p>
+                    </div>
                 </div>
-                
-            </div>
-            <div class="col-xl-3 content d-flex flex-column serv-box ">
-                <div class="circle">
-                    <img src="{{asset('english/images/Group 4270.png')}}" alt="">
-                    <h5>UI/UX DESIGN</h5>
-                    <p>We are a group of youth working under one umbrella it allows everyone to experiment and get the best results under a
-                        modern administrative system</p>
-                </div>
-                
-            </div>
-            <div class="col-xl-3 content d-flex flex-column serv-box">
-                <div class="circle">
-                    <img src="{{asset('english/images/Group 4271.png')}}" alt="">
-                    <h5>BUSINESS CONSULTING</h5>
-                    <p>We are a group of youth working under one umbrella it allows everyone to experiment and get the best results under a
-                        modern administrative system</p>
-                </div>
-            </div>
-            <div class="col-xl-3 content d-flex flex-column serv-box">
-                <div class="circle">
-                    <img src="{{asset('english/images/Group 4276.svg')}}" alt="">
-                    <h5>SOFTWARE TESTING</h5>
-                    <p>We are a group of youth working under one umbrella it allows everyone to experiment and get the best results under a
-                        modern administrative system</p>
-                </div>
-                
-            </div>
+            @endforeach
         </div>
 
-        <div class="row">
-            <div class="col-xl-3 content d-flex flex-column serv-box">
-                <div class="circle">
-                    <img src="{{asset('english/images/Group 4275.png')}}" alt=""><h5>DIGITAL MARKETING</h5>
-                    <p>We are a group of youth working under one umbrella it allows everyone to experiment and get the best results
-                        under a
-                        modern administrative system</p>
-                </div>
-            </div>
-            <div class="col-xl-3 content d-flex flex-column serv-box">
-                <div class="circle">
-                    <img src="{{asset('english/images/Group 4274.png')}}" alt=""><h5>E-COMMERCE</h5>
-                    <p>We are a group of youth working under one umbrella it allows everyone to experiment and get the best results
-                        under a
-                        modern administrative system</p>
-                </div>
-            </div>
-            <div class="col-xl-3 content d-flex flex-column serv-box">
-                <div class="circle">
-                    <img src="{{asset('english/images/Group 4272.png')}}" alt=""><h5>SOCIAL MEDIA MARKETING</h5>
-                    <p>We are a group of youth working under one umbrella it allows everyone to experiment and get the best results
-                        under a
-                        modern administrative system</p>
-                </div>
-            </div>
-            <div class="col-xl-3 content d-flex flex-column serv-box">
-                <div class="circle">
-                    <img src="{{asset('english/images/Group 4273.png')}}" alt="">
-                    <h5>SOFTWARE DEVELOPMENT</h5>
-                    <p>We are a group of youth working under one umbrella it allows everyone to experiment and get the best results
-                        under a
-                        modern administrative system</p>
-                </div>
-            </div>
-        </div>
+       
 
     </div>
 </div>
@@ -378,38 +319,17 @@
             </div>
         </div>
         <div class="row mt-5">
-            <div class="col-xl-3">
-                <div class="our-team-box member-1 " style="background-image: url(../images/t1.png);">
-                    <div class="member-details ">
-                        <p>Eng/ Ahmed Mohamed</p>
-                        <span>ceo</span>
-                    </div>
+           @foreach ($employees as $employee)
+           <div class="col-xl-3">
+            <div class="our-team-box member-4"style="background-image: url({{asset($employee->image)}});">
+                <div class="member-details ">
+                    <p>{{$employee->name}}</p>
+                    <span>{{$employee->postion}}</span>
                 </div>
             </div>
-            <div class="col-xl-3">
-                <div class="our-team-box member-2"style="background-image: url(../images/t2.png);">
-                    <div class="member-details ">
-                        <p>Eng/ Omar Ahmedd</p>
-                        <span>Designer</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3">
-                <div class="our-team-box member-3"style="background-image: url(../images/t3.png);">
-                    <div class="member-details ">
-                        <p>Eng/ Mona Sayed</p>
-                        <span>ASSISTANT</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3">
-                <div class="our-team-box member-4"style="background-image: url(../images/t4.png);">
-                    <div class="member-details ">
-                        <p>Eng/ Samy Ahmed</p>
-                        <span>Lead</span>
-                    </div>
-                </div>
-            </div>
+        </div>
+           @endforeach
+            
         </div>
     </div>
 </div>
@@ -433,25 +353,12 @@
             </div>
         </div>
         <div class="row mt-5">
+            @foreach ($clients as $item)
             <div class="col-xl-2">
-                <a href="#"><img src="{{asset('english/images/Mask Group 8.png')}}" alt="" class="w-100"></a>
-            </div>
-            <div class="col-xl-2">
-                <a href="#"><img src="{{asset('english/images/Mask Group 9.png')}}" alt="" class="w-100"></a>
-            </div>
-            <div class="col-xl-2">
-                <a href="#"><img src="{{asset('english/images/Mask Group 10.png')}}" alt="" class="w-100"></a>
-            </div>
-            <div class="col-xl-2">
-                <a href="#"><img src="{{asset('english/images/Mask Group 11.png')}}" alt="" class="w-100"></a>
-            </div>
-            <div class="col-xl-2">
-                <a href="#"><img src="{{asset('english/images/Mask Group 12.png')}}" alt="" class="w-100"></a>
-            </div>
-            <div class="col-xl-2">
-                <a href="#"><img src="{{asset('english/images/Mask Group 13.png')}}" alt="" class="w-100"></a>
-            </div>
-        
+                <img src="{{asset($item->image)}}" alt="" class="w-100">
+            </div>     
+            @endforeach
+                 
         </div>
     </div>
 </div>
@@ -523,7 +430,7 @@
         </div>
     </div>
 </footer>
-<script src="{{asset('english/{{asset('english/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('english/{{asset('english/js/script.js')}}"></script>
+<script src="{{asset('english/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('english/js/script.js')}}"></script>
 </body>
 </html>

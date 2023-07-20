@@ -20,6 +20,7 @@ class CreateClientsTable extends Migration
             $table->string("ar_name");
             $table->string('image')->nullable()->default('uploads/clients/mac.svg');
 
+            $table->string("link")->nullable();
             $table->bigInteger('field_id')->unsigned()->nullable();
             $table->foreign('field_id')->references('id')->on('fields')->onDelete('cascade');
 
