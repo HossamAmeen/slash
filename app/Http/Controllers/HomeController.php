@@ -24,7 +24,6 @@ class HomeController extends Controller
         else if(request()->segment(1) == "en")
             $this->lang = request()->segment(1);
         else
-        
         return redirect()->route('home', ['lang' => 'ar']);       
     }
     public  function  change_language($lang){
@@ -159,19 +158,7 @@ class HomeController extends Controller
         }
         return view("front-end.$this->lang.project" , compact('pageTitle' , 'project' , 'units' , 'news','images'));
     }
-    public function unit($lang, $id)
-    {
-        $unit = Unit::find($id);
-        $images = Media::all()->sortByDesc("id")->where('type','image')->where('project_id',$id);
-        if( $this->lang  == "en" ){
-            $pageTitle  = $unit->project->name??"";
-        }
-        else
-        {
-            $pageTitle = $unit->project->name??"";
-        }
-        return view("front-end.$this->lang.unit" , compact('pageTitle' ,'unit'));
-    }
+
     public function media()
     {
         $media = Media::get()->where('type','videos')->take(10);
@@ -188,9 +175,12 @@ class HomeController extends Controller
     public function contact_us(Request $request)
     {
         ContactUs::create($request->all());
-        session()->flash('action', ' تم الارسال بنجاح سنقوم بالتواصل معك في اقرب وقت');
-        return redirect(url()->previous() . '#contact-us');
-        return  redirect()->back();
+        // return $this->lang; 
+        if($this->lang = "ar")
+            session()->flash('action', ' تم الارسال بنجاح سنقوم بالتواصل معك في اقرب وقت');
+        else
+            session()->flash('action', 'Sent successfully.We will contact you as soon as possible.');
+        return redirect(url()->previous() . '#contact');
     }
     public function about_us()
     {
@@ -206,56 +196,5 @@ class HomeController extends Controller
         return view("front-end.$this->lang.about-us" , compact('pageTitle'));
     }
     
-    public function search()
-    {
-        $projects = project::query();
-        $units = Unit::query();
-        if( $this->lang  == "en" ){
-        
-            if(request('payment_type') != null)
-            {
-                $searchString = request('payment_type');
-                $units = $units->whereHas('project', function ($query) use ($searchString){
-                    $query->where('payment_type', 'like', '%'.$searchString.'%');
-                });
-            }
-            if(request('type') != null)
-            {
-                $searchString = request('type');
-                // $units = $units->whereHas('project', function ($query) use ($searchString){
-                //     $query->where('project_type', 'like', '%'.$searchString.'%');
-                // });
-                $units = $units->where('ar_project_type', 'like', '%'.$searchString.'%');
-                
-            } 
-            $pageTitle = "search" ;
-        }
-        else{
-            if(request('type') != null)
-            {
-                $searchString = request('type');
-                $units = $units->where('ar_project_type', 'like', '%'.$searchString.'%');
-            } 
-            if(request('payment_type') != null)
-            {
-                $searchString = request('payment_type');
-                $units = $units->whereHas('project', function ($query) use ($searchString){
-                    $query->where('ar_payment_type', 'like', '%'.$searchString.'%');
-                });
-            }
-          
-            $pageTitle = "بحث" ;
-        }
-       
-        if(request('space_from')){
-            $units =  $units->where('space' ,'>=',request('space_from'));
-        }
 
-        if(request('space_to')){
-            $units =  $units->where('space' ,'<=',request('space_to'));
-        }
-        $units = $units->orderby("id", "DESC")->get();
-        // return $units;
-        return  view("front-end.$this->lang.search" , compact('pageTitle', 'projects','units') );
-    }
 }

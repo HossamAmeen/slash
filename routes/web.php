@@ -27,3 +27,4 @@ Route::prefix('admin')->group(function(){
 });
 Route::get('/', 'HomeController@home')->name('home');
 Route::get('/en', 'HomeController@home')->name('home');
+Route::any('/contact-us', 'HomeController@contact_us')->name('contact-us');

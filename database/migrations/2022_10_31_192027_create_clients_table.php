@@ -18,7 +18,7 @@ class CreateClientsTable extends Migration
             $table->integer('item_order')->unsigned()->nullable();
             $table->string("name")->nullable();
             $table->string("ar_name");
-            $table->string('image')->nullable()->default('uploads/clients/mac.svg');
+            $table->string('image')->nullable()->default('images/client.png');
 
             $table->string("link")->nullable();
             $table->bigInteger('field_id')->unsigned()->nullable();

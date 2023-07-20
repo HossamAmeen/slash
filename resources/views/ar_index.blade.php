@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>سلاش</title>
     <meta name="description" content="slash">
@@ -7,7 +8,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300|Raleway|Rochester&display=swap"
         rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('images/Final Slash Presentation-logo.png')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('images/logo.png')}}">
     <meta name="keywords" content="slash">
     <meta name="author" content="slash">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,8 +22,7 @@
 <body>
     <nav class="navbar navbar-expand-lg ">
         <div class="container align-items-baseline w-100 ">
-            <a class="navbar-brand" href="#"><img src="{{asset('arabic/images/Final Slash Presentation-logo.png')}}"
-                    alt=""></a>
+            <a class="navbar-brand" href="#"><img src="{{asset('images/logo.png')}}" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -52,7 +52,7 @@
                         <a class="nav-link" href="#contact">اتصل بنا</a>
                     </li>
                     <li class="nav-item dropdown d-flex align-items-baseline">
-                        <a class="dropdown-item" href="{{url('/')}}"><img src="{{asset('arabic/images/egypt.png')}}" alt=""
+                        <a class="dropdown-item" href="#"><img src="{{asset('images/egypt.png')}}" alt=""
                                 class="language-img">العربيه</a>
                         <a class="nav-link dropdown-toggle lan-div m-0" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -60,8 +60,8 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li class="d-flex"><a class="dropdown-item" href="{{url('/en')}}"> <img
-                                        src="{{asset('arabic/images/united-states.png')}}" alt=""
-                                        class="language-img">EN</a></li>
+                                        src="{{asset('images/united-states.png')}}" alt="" class="language-img">EN</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -78,9 +78,12 @@
                         <p>وكالة البرمجيات
                             والتسويق الرقمي</p>
                         <div class="icons-group">
-                            <a href=""><img src="{{asset('images/phone.png')}}" alt=""></a>
-                            <a href=""><img src="{{asset('images/whatsapp.png')}}" alt=""></a>
-                            <a href="{{$configration->facebook}}"><img src="{{asset('images/fb.png')}}" alt=""></a>
+                            <a href="tel:+{{$configration->phone}}" target="_blank"><img
+                                    src="{{asset('images/phone.png')}}" alt=""></a>
+                            <a href="https://api.whatsapp.com/send?phone={{$configration->whatsapp}}"
+                                target="_blank"><img src="{{asset('images/whatsapp.png')}}" alt=""></a>
+                            <a href="{{$configration->facebook}}"><img src="{{asset('images/fb.png')}}" target="_blank"
+                                    alt=""></a>
                         </div>
                     </div>
 
@@ -89,10 +92,11 @@
         </div>
     </header>
     <button type="button" class="btn btn btn-floating btn-lg" id="btn-back-to-top">
-        <img src="{{asset('arabic/images/go-up.png')}}" alt="">
+        <img src="{{asset('images/go-up.png')}}" alt="">
     </button>
     <button type="button" class="btn btn btn-floating-whatsapp btn-lg">
-        <a href="https://wa.link/n8a1le"><img src="{{asset('arabic/images/Group 4318@2x.png')}}" alt=""></a>
+        <a href="https://api.whatsapp.com/send?phone={{$configration->whatsapp}}"><img
+                src="{{asset('images/whatsapp_2.png')}}" target="_blank" alt=""></a>
     </button>
     <div class="about" id="about-us">
         <div class="container">
@@ -138,7 +142,7 @@
                     </div>
                 </div>
                 @endforeach
-                
+
             </div>
 
 
@@ -278,27 +282,32 @@
                     <div class="col-xl-4">
                         <div class="contact-details mb-4 mb-xl-0">
                             <p>لموبايل</p>
-                            <a href="tel:+0201159116034">+02 01159116034</a>
+                            <a href="tel:+{{$configration->phone}}">+{{$configration->phone}}</a>
                             <p>البريد الالكتروني</p>
-                            <a href="">myegy2022@myegy.com</a>
+                            <a href="mailto:{{$configration->email}}">{{$configration->email}}</a>
                             <p>لعنوان</p>
-                            <a href="">محافظة أسيوط,شارع المكتيات,بجوار
-                                جامعة أسيوط العامة</a>
+                            <p >{{$configration->ar_address}}</p>
                         </div>
                     </div>
                     <div class="col-xl-8">
-                        <form action="/action_page.php">
+                        @if (session()->get('action') )
+                        <div class="alert alert-success">
+                            <strong>{{session()->get('action')}}</strong>
+                        </div>
+                        @endif
+                        <form action="{{url('contact-us')}}" method="post">
+                            @csrf
                             <div class="mb-3 d-flex justify-content-between side">
                                 <input type="text" class="form-control w-30" placeholder="الاسم بالكامل" name="name"
                                     required>
-                                <input type="text" class="form-control w-40" placeholder="البريد الالكتروني"
+                                <input type="email" class="form-control w-40" placeholder="البريد الالكتروني"
                                     name="email" required>
                             </div>
                             <div class="mb-3">
                                 <input type="text" class="form-control" placeholder="الموضوع" name="subject" required>
                             </div>
                             <div class="mb-3">
-                                <textarea name="Message" class="form-control" placeholder="الرسالة" id="" cols="30"
+                                <textarea name="message" class="form-control" placeholder="الرسالة" id="" cols="30"
                                     rows="4" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">ارسال</button>
@@ -334,7 +343,7 @@
                     </div>
                 </div>
                 @endforeach
-                
+
             </div>
         </div>
     </div>
@@ -354,11 +363,11 @@
                 </div>
             </div>
             <div class="row mt-5">
-            
+
                 @foreach ($clients as $item)
                 <div class="col-xl-2">
                     <a href="{{$item->link}}"><img src="{{asset($item->image)}}" alt="" class="w-100"></a>
-                </div>     
+                </div>
                 @endforeach
             </div>
         </div>
@@ -369,7 +378,7 @@
                 <div class="row">
                     <div class="col-xl-3">
                         <div class="p-1">
-                            <img src="{{asset('arabic/images/Final Slash Presentation-logo-1.png')}}" alt="">
+                            <img src="{{asset('/images/logo-1.png')}}" alt="">
                             <p>
                                 نحن مجموعة من الشباب نعمل تحت مظلة واحدة تسمح للجميع بالتجربة والحصول على أفضل النتائج
                             </p>
@@ -391,13 +400,11 @@
                     </div>
                     <div class="col-xl-3">
                         <div class="p-3">
-                            <p>العنوان: محافظة أسيوط,شارع المكتيات,بجوار جامعة أسيوط العامة</p>
-                            <p>الايميل: contact@slash.net
-                            </p>
-                            <p>الأرضى : 123.457.9012</p>
-                            <p>فاكس : (+20) 1159116034</p>
-                            <a href=""><img src="{{asset('arabic/images/ic_phone_bluetooth_speaker_24px.png')}}" alt="">
-                                1239400</a>
+                            <p>العنوان: {{$configration->ar_address}} </p>
+                            <p>الايميل: {{$configration->email}}</p>
+                            <p>الهاتف : {{$configration->phone}}</p>
+                            <a href="tel:+{{$configration->phone}}"><img src="{{asset('images/speaker.png')}}" alt="">
+                                {{$configration->phone}}</a>
                         </div>
                     </div>
                     <div class="col-xl-3">

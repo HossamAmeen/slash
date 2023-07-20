@@ -20,7 +20,7 @@ class CreateEmployeesTable extends Migration
             $table->string("postion");
             $table->string("ar_postion");
             $table->string("ar_name");
-            $table->string('image')->nullable()->default('uploads/employees/ali.jpg');
+            $table->string('image')->nullable()->default('images/team.png');
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->softDeletes();
