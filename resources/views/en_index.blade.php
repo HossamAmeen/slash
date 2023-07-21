@@ -161,66 +161,26 @@
                     <div class="tab">
                         <button class="tablinks" onclick="openTap(event, 'All')" id="defaultOpen">All</button>
                         <button class="tablinks" onclick="openTap(event, 'SocialMedia')">SOCIAL MEDIA</button>
-                        <button class="tablinks" onclick="openTap(event, 'ECommerce')">E-COMMERCE</button>
-                        <button class="tablinks" onclick="openTap(event, 'Branding')">BRANDING</button>
-                        <button class="tablinks" onclick="openTap(event, 'websiteDevelopment')">WEBSITE
-                            DEVELOPMENT</button>
+                        <button class="tablinks" onclick="openTap(event, 'ecomerce')">ecomerce</button>
+                        <button class="tablinks" onclick="openTap(event, 'branding')">BRANDING</button>
+                        <button class="tablinks" onclick="openTap(event, 'Web')">WEBSITE DEVELOPMENT</button>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div id="All" class="tabcontent">
                     <div class="row mb-4">
-                        <div class="col-xl-4">
-                            <div class="w-100 mb-4 mb-xl-0">
-                                <img src="{{asset('english/images/show – 3.png')}}" alt="" class="w-100 h-100">
+                        @foreach($last_works as $last_work)
+                        <div class="col-xl-4 {{$last_work->type}} tabtype">
+                            <div class="w-100 mb-4 mb-xl-0 {{$last_work->type}}">
+                                <img src="{{$last_work->image}}" alt="{{$last_work->name}}" class="w-100 h-100">
                             </div>
                         </div>
-                        <div class="col-xl-4">
-                            <div class="w-100 mb-4 mb-xl-0">
-                                <img src="{{asset('english/images/AZ app.png')}}" alt="" class="w-100 h-100">
-                            </div>
-                        </div>
-                        <div class="col-xl-4">
-                            <div class="w-100">
-                                <img src="{{asset('english/images/Eleven app.png')}}" alt="" class="w-100 h-100">
-                            </div>
-                        </div>
+                        @endforeach
+                       
+                       
                     </div>
-                    <div class="row mb-4">
-                        <div class="col-xl-4">
-                            <div class="w-100 mb-4 mb-xl-0">
-                                <img src="{{asset('english/images/show – 3.png')}}" alt="" class="w-100 h-100">
-                            </div>
-                        </div>
-                        <div class="col-xl-4">
-                            <div class="w-100 mb-4 mb-xl-0">
-                                <img src="{{asset('english/images/AZ app.png')}}" alt="" class="w-100 h-100">
-                            </div>
-                        </div>
-                        <div class="col-xl-4">
-                            <div class="w-100">
-                                <img src="{{asset('english/images/Eleven app.png')}}" alt="" class="w-100 h-100">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-4">
-                        <div class="col-xl-4">
-                            <div class="w-100 mb-4 mb-xl-0">
-                                <img src="{{asset('english/images/show – 3.png')}}" alt="" class="w-100 h-100">
-                            </div>
-                        </div>
-                        <div class="col-xl-4">
-                            <div class="w-100 mb-4 mb-xl-0">
-                                <img src="{{asset('english/images/AZ app.png')}}" alt="" class="w-100 h-100">
-                            </div>
-                        </div>
-                        <div class="col-xl-4">
-                            <div class="w-100">
-                                <img src="{{asset('english/images/Eleven app.png')}}" alt="" class="w-100 h-100">
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div id="more">
                         <div class="row mb-4">
                             <div class="col-xl-4">
@@ -242,26 +202,26 @@
                     </div>
                 </div>
 
-                <div id="SocialMedia" class="tabcontent">
+                {{-- <div id="SocialMedia" class="tabcontent">
                     <h3>SocialMedia</h3>
                 </div>
-                <div id="ECommerce" class="tabcontent">
-                    <h3>ECommerce</h3>
+                <div id="web" class="tabcontent">
+                    <h3>Web</h3>
                 </div>
-                <div id="Branding" class="tabcontent">
+                <div id="branding" class="tabcontent">
                     <h3>Branding</h3>
                 </div>
                 <div id="websiteDevelopment" class="tabcontent">
                     <h3>websiteDevelopment</h3>
-                </div>
+                </div> --}}
             </div>
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-xl-12">
                     <div class="mt-5 d-flex justify-content-center see-more">
                         <a onclick="showMore()" id="myBtn">VIEW MORE WORKS</a></a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
     </div>
@@ -429,7 +389,7 @@
                                     alt=""> {{$configration->phone}}</a>
                         </div>
                     </div>
-                    <div class="col-xl-3">
+                    {{-- <div class="col-xl-3">
                         <div class="d-flex flex-column email-form p-4">
                             <p>Subscribe to the newsletter</p>
                             <form action="">
@@ -438,7 +398,7 @@
                                 <button type="submit" class="btn btn-primary">SEND</button>
                             </form>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

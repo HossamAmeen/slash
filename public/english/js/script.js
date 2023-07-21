@@ -25,21 +25,47 @@ function backToTop() {
 
 //tabs
 
-function openTap(evt, cityName) {
+function openTap(evt, type) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
+      tabcontent[i].style.display = "none";
   }
   tablinks = document.getElementsByClassName("tablinks");
   for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  document.getElementById(cityName).style.display = "block";
+  document.getElementById("All").style.display = "block";
   evt.currentTarget.className += " active";
-  
-}// Get the element with id="defaultOpen" and click on it
-  document.getElementById("defaultOpen").click();
+
+  // Filter elements by type
+  if (type !== "All") {
+      var elements = document.getElementsByClassName("tabtype");
+      for (i = 0; i < elements.length; i++) {
+          elements[i].style.display = "block";
+      }
+
+      // Hide elements with other types
+      var allElements = document.getElementsByClassName("tabtype");
+      for (i = 0; i < allElements.length; i++) {
+          if (!allElements[i].classList.contains(type)) {
+              allElements[i].style.display = "none";
+          }
+      }
+
+      var allElements = document.getElementsByClassName("tabtype");
+      for (i = 0; i < allElements.length; i++) {
+          if (allElements[i].classList.contains(type)) {
+              allElements[i].style.display = "block";
+          }
+      }
+  }else{
+    var allElements = document.getElementsByClassName("tabtype");
+    for (i = 0; i < allElements.length; i++) {
+            allElements[i].style.display = "block";}
+  }
+}
+document.getElementById("defaultOpen").click();
 
 
 
@@ -56,3 +82,7 @@ function openTap(evt, cityName) {
       moreText.style.display = "block";
     }
   }
+
+
+
+

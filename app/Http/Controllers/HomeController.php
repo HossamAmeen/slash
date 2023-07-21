@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Project;
 use App\Models\Gallery;
-use App\Models\{Employee, Client, Service};
+use App\Models\{Employee, Client, Service, LastWork};
 use App\Models\Media;
 
 use App\Models\{Unit,ContactUs};
@@ -56,7 +56,7 @@ class HomeController extends Controller
         $employees  = Employee::all()->sortByDesc("item_order")->take(4);
         $clients = Client::all()->sortByDesc("item_order");
         $services = Service::all()->sortByDesc("item_order");
-        
+        $last_works = LastWork::all()->sortByDesc("item_order");
         if( $this->lang  == "en" ){
 
             $pageTitle  = "Home";
@@ -70,7 +70,7 @@ class HomeController extends Controller
             // $projects = Project::all()->sortByDesc("item_order")->where('ar_name','!=',null)->take(8);
 
         }
-        return view($this->lang."_index" , compact('employees','clients','services','pageTitle'));
+        return view($this->lang."_index" , compact('employees','clients','services','last_works','pageTitle'));
     }
 
     public function news()

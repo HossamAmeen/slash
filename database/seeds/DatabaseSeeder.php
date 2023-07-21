@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
     factory('App\Models\Employee',15)->create();
     factory('App\Models\ClientReview',15)->create();
     factory('App\Models\Job',15)->create();
+    factory('App\Models\LastWork',15)->create();
     App\Models\Media::create(
         [
             "type"=>"video",

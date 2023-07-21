@@ -124,3 +124,13 @@ $factory->define(App\Models\Job::class, function (Faker $faker) {
         "user_id" => 1
     ];
 });
+$factory->define(App\Models\LastWork::class, function (Faker $faker) {
+
+    return [
+        "item_order" => 1,
+        'name'=> $faker->name ,
+        'ar_name'=> $faker->name. "عربي" ,
+        'type' => $faker->randomElement(['web', 'branding']),
+        "user_id" => 1
+    ];
+});
