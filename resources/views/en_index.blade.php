@@ -160,7 +160,7 @@
                     <h3 class="m-0">latest work</h3>
                     <div class="tab">
                         <button class="tablinks" onclick="openTap(event, 'All')" id="defaultOpen">All</button>
-                        <button class="tablinks" onclick="openTap(event, 'SocialMedia')">SOCIAL MEDIA</button>
+                        <button class="tablinks" onclick="openTap(event, 'socialMedia')">SOCIAL MEDIA</button>
                         <button class="tablinks" onclick="openTap(event, 'ecomerce')">ecomerce</button>
                         <button class="tablinks" onclick="openTap(event, 'branding')">BRANDING</button>
                         <button class="tablinks" onclick="openTap(event, 'Web')">WEBSITE DEVELOPMENT</button>

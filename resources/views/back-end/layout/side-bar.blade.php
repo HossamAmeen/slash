@@ -74,9 +74,9 @@
                     paper"></i><span>تواصل معانا</span><span class="badge badge-red contact_count" ></span>
             </a>
         </li>
-        <li class="{{is_active('jobs')}}">
-            <a href="{{route('jobs.index')}}"  class="{{is_active('jobs')}}">
-                    <i class="fa fa-gear"></i><span>الوظائف</span>
+        <li class="{{is_active('lastworks')}}">
+            <a href="{{route('lastworks.index')}}"  class="{{is_active('lastworks')}}">
+                    <i class="fa fa-gear"></i><span>اعمالنا</span>
             </a>
 
         </li>

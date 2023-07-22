@@ -23,6 +23,7 @@ Route::prefix('admin')->group(function(){
         Route::resource('images', 'ImagesController'); 
         Route::resource('videos', 'VideoController'); 
         Route::resource('contactuses', 'ContackUsController'); 
+        Route::resource('lastworks', 'LastWorkController'); 
     });
 });
 Route::get('/', 'HomeController@home')->name('home');
