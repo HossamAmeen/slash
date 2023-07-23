@@ -21,7 +21,7 @@ class CreateServicesTable extends Migration
             $table->string("ar_name");
             $table->text("description")->nullable();
             $table->text("ar_description");
-            $table->string('image')->nullable()->default('service.png');
+            $table->string('image')->nullable()->default('images/service.png');
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->softDeletes();

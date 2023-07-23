@@ -24,6 +24,8 @@ class CreateConfigrationsTable extends Migration
             $table->text('description')->nullable();
             $table->text('en_description')->nullable();
 
+            $table->text('ar_about_us')->nullable();
+            $table->text('about_us')->nullable();
             
             $table->text('head_meta')->nullable();
             $table->text('footer_meta')->nullable();

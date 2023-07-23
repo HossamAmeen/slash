@@ -26,6 +26,22 @@ $factory->define(App\Models\Configration::class, function (Faker $faker) {
     return [
         "ar_title"=> "سلاش", 
         "title"=> "slash",
+        "ar_about_us" => "نحن مجموعة من الشباب نعمل تحت مظلة واحدة تسمح للجميع بالتجربة والحصول على أفضل النتائج في ظل نظام
+        إداري حديث يساوي الموظفين بالعملاء. نتطلع إلى أن نكون أكبر شركة عربية في هذا المجال وأن نغزو السوق الخارجية،
+        وفقًا لتجربتنا وفكرناالمتجدد دائمًا. نظرًا لأن الويب قادر بسهولة على استيعاب الوسائط مثل الصوت والصور والفيديو وكذلك
+        النص. ظهرت مواقع
+        اجتماعية تدعم هذه الوسائط.قادر بسهولة على استيعاب الوسائط مثل الصوت والصور والفيديو وكذلك النص.
+        ظهرت مواقع اجتماعية تدعم
+        هذه الوسائط.",
+        "ar_about_us" => "We are a group of youth working under one umbrella it allows everyone to experiment and get the
+        best results under a
+        modern administrative system that equates employees with customers. We look forward to being the
+        largest Arab company in
+        this field and conquer the foreign market, according to our experience and our renewed thought
+        always. Since the web is
+        easily able to accommodate media such as audio, images and video as well as text. social sites
+        supporting these media
+        have emerged.",
         "slide_description" => "Welcome to slash for marketing and programming services",
         "ar_slide_description" => "مرحبا بك في سلاش",
         "description"=>"شيسشسيشسيشسيشس" ,

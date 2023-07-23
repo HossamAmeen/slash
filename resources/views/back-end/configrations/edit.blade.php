@@ -15,9 +15,9 @@
 <div class="row" style="  padding-right: 10%;">
     <div class="col-md-10">
         {{-- <div class="panel panel-default"> --}}
-            
-          
-           
+
+
+
             <div class="panel-body">
                 <form class="form-horizontal ls_form ls_form_horizontal"
                     action="{{route('configrations.update', ['id' => $row])}}" method="POST">
@@ -142,7 +142,7 @@
                             @enderror
                         </div>
                     </div>
-                     @php $input = "company_profile"; @endphp
+                    @php $input = "company_profile"; @endphp
                     <div class="form-group">
                         <label class="col-lg-2 control-label">Company Profile</label>
 
@@ -157,7 +157,7 @@
                         </div>
                     </div>
 
-                    
+
                     @php $input = "ar_address"; @endphp
                     <div class="form-group">
                         <label class="col-lg-2 control-label">عنوان المقر الرئيسي</label>
@@ -186,7 +186,7 @@
                             @enderror
                         </div>
                     </div>
-                    
+
 
                     @php $input = "email"; @endphp
                     <div class="form-group">
@@ -228,7 +228,7 @@
                             </span>
                             @enderror
                         </div>
-                    </div>              
+                    </div>
 
                     @php $input = "whatsapp"; @endphp
                     <div class="form-group">
@@ -328,7 +328,7 @@
                             @enderror
                         </div>
                     </div>
-                    @php $input = "projects_counter"; @endphp
+                    {{-- @php $input = "projects_counter"; @endphp
                     <div class="form-group">
                         <label class="col-lg-2 control-label">عدد المشروعات</label>
                         <div class="col-lg-10">
@@ -383,9 +383,6 @@
                             @enderror
                         </div>
                     </div>
-                    
-                    
-                    
                     @php $input = "experience_year_counter"; @endphp
                     <div class="form-group">
                         <label class="col-lg-2 control-label">عدد سنين الخبرة</label>
@@ -399,17 +396,52 @@
                             </span>
                             @enderror
                         </div>
+                    </div> --}}
+
+                    @php $input = "ar_about_us"; @endphp
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">about us</label>
+
+                        <div class="col-lg-10">
+                            <textarea name="{{ $input }}" class="form-control"
+                                rows="5">{{isset($row) ? $row->{$input} : Request::old($input)}}</textarea>
+                            {{-- <input type="text" name="{{ $input }}"
+                                value="{{ isset($row) ? $row->{$input} : Request::old($input) }}" class="form-control">
+                            --}}
+                            @error($input)
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
                     </div>
+                    @php $input = "about_us"; @endphp
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">about us English</label>
 
-
+                        <div class="col-lg-10">
+                            <textarea name="{{ $input }}" class="form-control"
+                                rows="5">{{isset($row) ? $row->{$input} : Request::old($input)}}</textarea>
+                            {{-- <input type="text" name="{{ $input }}"
+                                value="{{ isset($row) ? $row->{$input} : Request::old($input) }}" class="form-control">
+                            --}}
+                            @error($input)
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
                     @php $input = "header_keywords"; @endphp
                     <div class="form-group">
                         <label class="col-lg-2 control-label">header keywords</label>
 
                         <div class="col-lg-10">
-                            <textarea name="{{ $input }}" class="form-control" rows="5">{{isset($row) ? $row->{$input} : Request::old($input)}}</textarea>
+                            <textarea name="{{ $input }}" class="form-control"
+                                rows="5">{{isset($row) ? $row->{$input} : Request::old($input)}}</textarea>
                             {{-- <input type="text" name="{{ $input }}"
-                                value="{{ isset($row) ? $row->{$input} : Request::old($input) }}" class="form-control"> --}}
+                                value="{{ isset($row) ? $row->{$input} : Request::old($input) }}" class="form-control">
+                            --}}
                             @error($input)
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -422,9 +454,11 @@
                         <label class="col-lg-2 control-label">Header keywords English</label>
 
                         <div class="col-lg-10">
-                            <textarea name="{{ $input }}" class="form-control" rows="5">{{isset($row) ? $row->{$input} : Request::old($input)}}</textarea>
+                            <textarea name="{{ $input }}" class="form-control"
+                                rows="5">{{isset($row) ? $row->{$input} : Request::old($input)}}</textarea>
                             {{-- <input type="text" name="{{ $input }}"
-                                value="{{ isset($row) ? $row->{$input} : Request::old($input) }}" class="form-control"> --}}
+                                value="{{ isset($row) ? $row->{$input} : Request::old($input) }}" class="form-control">
+                            --}}
                             @error($input)
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -437,9 +471,11 @@
                         <label class="col-lg-2 control-label">head meta</label>
 
                         <div class="col-lg-10">
-                            <textarea name="{{ $input }}" class="form-control" rows="15">{{isset($row) ? $row->{$input} : Request::old($input)}}</textarea>
+                            <textarea name="{{ $input }}" class="form-control"
+                                rows="15">{{isset($row) ? $row->{$input} : Request::old($input)}}</textarea>
                             {{-- <input type="text" name="{{ $input }}"
-                                value="{{ isset($row) ? $row->{$input} : Request::old($input) }}" class="form-control"> --}}
+                                value="{{ isset($row) ? $row->{$input} : Request::old($input) }}" class="form-control">
+                            --}}
                             @error($input)
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -452,14 +488,15 @@
                         <label class="col-lg-2 control-label">footer meta</label>
 
                         <div class="col-lg-10">
-                            <textarea name="{{ $input }}" class="form-control" rows="15">{{isset($row) ? $row->{$input} : Request::old($input)}}</textarea>
+                            <textarea name="{{ $input }}" class="form-control"
+                                rows="15">{{isset($row) ? $row->{$input} : Request::old($input)}}</textarea>
                             @error($input)
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                         </div>
-                    </div>                    
+                    </div>
                     <div class="form-group">
                         <div class="col-lg-offset-2 col-lg-10">
                             <button class="btn btn-primary" type="submit">حفظ</button>

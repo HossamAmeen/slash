@@ -9,7 +9,8 @@
         href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300|Raleway|Rochester&display=swap"
         rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('images/logo.png')}}">
-    <meta name="keywords" content="slash">
+    <meta name="keywords" content="{{$configration->header_keywords}}">
+    {!!$configration->head_meta!!}
     <meta name="author" content="slash">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('arabic/css/bootstrap.min.css')}}">
@@ -111,16 +112,11 @@
                 </div>
                 <div class="col-xl-6 content d-flex flex-column align-items-start justify-content-center">
                     <h3>من نحن</h3>
-                    <p>نحن مجموعة من الشباب نعمل تحت مظلة واحدة تسمح للجميع بالتجربة والحصول على أفضل النتائج في ظل نظام
-                        إداري حديث يساوي
-                        الموظفين بالعملاء. نتطلع إلى أن نكون أكبر شركة عربية في هذا المجال وأن نغزو السوق الخارجية،
-                        وفقًا لتجربتنا وفكرنا
-                        المتجدد دائمًا. نظرًا لأن الويب قادر بسهولة على استيعاب الوسائط مثل الصوت والصور والفيديو وكذلك
-                        النص. ظهرت مواقع
-                        اجتماعية تدعم هذه الوسائط.قادر بسهولة على استيعاب الوسائط مثل الصوت والصور والفيديو وكذلك النص.
-                        ظهرت مواقع اجتماعية تدعم
-                        هذه الوسائط.</p>
-                    <!-- <a href=""> تحميل اخر الاعمال</a> -->
+                    <p>{{$configration->ar_about_us}}</p>
+                    
+                    @if($configration->company_profile)
+                        <a href="{{$configration->company_profile}}">شوف اخر الاعمال</a>
+                    @endif
                 </div>
             </div>
 
@@ -400,6 +396,7 @@
     </footer>
     <script src="{{asset('arabic/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('arabic/js/script.js')}}"></script>
+    {!!$configration->footer_meta!!}
 </body>
 
 </html>

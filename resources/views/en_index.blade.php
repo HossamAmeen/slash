@@ -9,8 +9,9 @@
         href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300|Raleway|Rochester&display=swap"
         rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('images/logo.png')}}">
-    <meta name="keywords" content="slash">
+    <meta name="keywords" content="{{$configration->en_header_keywords}}">
     <meta name="author" content="slash">
+    {!!$configration->head_meta!!}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('english/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('english/css/style.css')}}" />
@@ -113,16 +114,10 @@
                 </div>
                 <div class="col-xl-6 content d-flex flex-column align-items-baseline justify-content-center">
                     <h3>ABOUT SLASH</h3>
-                    <p>We are a group of youth working under one umbrella it allows everyone to experiment and get the
-                        best results under a
-                        modern administrative system that equates employees with customers. We look forward to being the
-                        largest Arab company in
-                        this field and conquer the foreign market, according to our experience and our renewed thought
-                        always. Since the web is
-                        easily able to accommodate media such as audio, images and video as well as text. social sites
-                        supporting these media
-                        have emerged.</p>
-                    <a href="">DOWNLOAD OUR PROFILE</a>
+                    <p>{{$configrations->about_us}}</p>
+                    @if($configrations->company_profile)
+                        <a href="{{$configrations->company_profile}}">VISIT OUR PROFILE</a>
+                    @endif
                 </div>
             </div>
 
@@ -424,6 +419,7 @@
     </footer>
     <script src="{{asset('english/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('english/js/script.js')}}"></script>
+    {!!$configration->footer_meta!!}
 </body>
 
 </html>
