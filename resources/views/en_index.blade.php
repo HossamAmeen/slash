@@ -171,7 +171,7 @@
                 <div id="All" class="tabcontent">
                     <div class="row mb-4">
                         @foreach($last_works as $last_work)
-                        <div class="col-xl-4 {{$last_work->type}} tabtype">
+                        <div class="col-xl-4 {{$last_work->type}} tabtype" style="margin-bottom: 25px"  >
                             <div class="w-100 mb-4 mb-xl-0 {{$last_work->type}}">
                                 <img src="{{$last_work->image}}" alt="{{$last_work->name}}" class="w-100 h-100">
                             </div>
