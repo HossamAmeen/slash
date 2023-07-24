@@ -114,9 +114,9 @@
                 </div>
                 <div class="col-xl-6 content d-flex flex-column align-items-baseline justify-content-center">
                     <h3>ABOUT SLASH</h3>
-                    <p>{{$configrations->about_us}}</p>
-                    @if($configrations->company_profile)
-                        <a href="{{$configrations->company_profile}}">VISIT OUR PROFILE</a>
+                    <p>{{$configration->about_us}}</p>
+                    @if($configration->company_profile)
+                        <a href="{{$configration->company_profile}}">VISIT OUR PROFILE</a>
                     @endif
                 </div>
             </div>

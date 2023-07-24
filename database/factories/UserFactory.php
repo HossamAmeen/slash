@@ -33,7 +33,7 @@ $factory->define(App\Models\Configration::class, function (Faker $faker) {
         اجتماعية تدعم هذه الوسائط.قادر بسهولة على استيعاب الوسائط مثل الصوت والصور والفيديو وكذلك النص.
         ظهرت مواقع اجتماعية تدعم
         هذه الوسائط.",
-        "ar_about_us" => "We are a group of youth working under one umbrella it allows everyone to experiment and get the
+        "about_us" => "We are a group of youth working under one umbrella it allows everyone to experiment and get the
         best results under a
         modern administrative system that equates employees with customers. We look forward to being the
         largest Arab company in
