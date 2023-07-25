@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Slash</title>
+    <title>{{$configration->title}}</title>
     <meta name="description" content="slash">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <link
@@ -135,8 +135,8 @@
                 <div class="col-xl-3 content d-flex flex-column serv-box">
                     <div class="circle">
                         <img src="{{asset($service->image)}}" alt="">
-                        <h5>{{$service->ar_name}}</h5>
-                        <p>{{$service->ar_description}}</p>
+                        <h5>{{$service->name}}</h5>
+                        <p>{{$service->description}}</p>
                     </div>
                 </div>
                 @endforeach
@@ -355,9 +355,7 @@
                         <div class="p-1">
                             <img src="{{asset('images/logo-1.png')}}" alt="">
                             <p>
-                                Slash solves the cyber skills gap.Continuous on-demand security scaled by the world's
-                                most skilled ethical hackers and
-                                AI technology.
+                                {{$configration->en_description}}
                             </p>
                             <div class="social-media-icons">
 
