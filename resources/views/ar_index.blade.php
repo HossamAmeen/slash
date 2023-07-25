@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>سلاش</title>
+    <title>{{$configration->ar_title}}</title>
     <meta name="description" content="slash">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <link
@@ -335,7 +335,7 @@
                         <div class="p-1">
                             <img src="{{asset('/images/logo-1.png')}}" alt="">
                             <p>
-                                نحن مجموعة من الشباب نعمل تحت مظلة واحدة تسمح للجميع بالتجربة والحصول على أفضل النتائج
+                                {{$configration->description}}
                             </p>
                             <div class="social-media-icons">
 

@@ -26,6 +26,7 @@
                             <th>#</th>
                             <th>الترتيب</th>
                             <th>الاسم</th>
+                            <th>الوظيفة</th>
                             <th>الصورة</th>
                             <th>المستخدم</th>
                             <th></th>
@@ -38,7 +39,7 @@
                                     <td> {{$counter}}</td>
                                     <td> {{$item->item_order}}</td>
                                     <td>{{$item->ar_name}}</td>
-                                   
+                                    <td>{{$item->ar_postion}}</td>
                                     <td>  <img src="{{asset($item->image)}}" height="60px" width="60px" alt="{{asset($item->image)}}" style="background-color: #DBF9FC;"></td>
                                     <td>{{ isset($item->user) ? $item->user->user_name : '' }}</td>
                                     <td>
