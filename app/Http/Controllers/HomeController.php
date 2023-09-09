@@ -17,14 +17,14 @@ class HomeController extends Controller
     protected $lang;  
     public function __construct()
     {
-        $this->lang = "ar";
+        $this->lang = "en";
         if(  request()->segment(1) == "ar" ) {
             $this->lang = "ar";
         }
         else if(request()->segment(1) == "en")
             $this->lang = request()->segment(1);
         else
-        return redirect()->route('home', ['lang' => 'ar']);       
+        return redirect()->route('home', ['lang' => 'en']);       
     }
     public  function  change_language($lang){
         $prefUrl = url()->previous() ; 
@@ -57,7 +57,7 @@ class HomeController extends Controller
         $clients = Client::all()->sortByDesc("item_order");
         $services = Service::all()->sortByDesc("item_order");
         $last_works = LastWork::all()->sortByDesc("item_order");
-        if( $this->lang  == "en" ){
+        if( $this->lang  == "ar" ){
 
             $pageTitle  = "Home";
             // $news = News::all()->sortByDesc("item_order")->where('title','!=',null)->take(4);

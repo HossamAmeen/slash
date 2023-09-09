@@ -19,7 +19,7 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 </head>
-
+<meta name="google-site-verification" content="HxFuaxeLV9Rvz2DSbdH_HaUMS_fXJxz7aDwtzPDMO_w" />
 <body>
     <nav class="navbar navbar-expand-lg ">
         <div class="container align-items-baseline w-100 ">
@@ -60,7 +60,7 @@
 
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="d-flex"><a class="dropdown-item" href="{{url('/en')}}"> <img
+                            <li class="d-flex"><a class="dropdown-item" href="{{url('/')}}"> <img
                                         src="{{asset('images/united-states.png')}}" alt="" class="language-img">EN</a>
                             </li>
                         </ul>
@@ -113,7 +113,7 @@
                 <div class="col-xl-6 content d-flex flex-column align-items-start justify-content-center">
                     <h3>من نحن</h3>
                     <p>{{$configration->ar_about_us}}</p>
-                    
+
                     @if($configration->company_profile)
                         <a href="{{$configration->company_profile}}">شوف اخر الاعمال</a>
                     @endif
@@ -134,7 +134,7 @@
                     <div class="circle">
                         <img src="{{asset($service->image)}}" alt="">
                         <h5>{{$service->ar_name}}</h5>
-                        <p>{{$service->ar_description}}</p>
+                        <p>{!!$service->ar_description!!}</p>
                     </div>
                 </div>
                 @endforeach
@@ -170,7 +170,7 @@
                             </div>
                         </div>
                         @endforeach
-                        
+
                     </div>
                     {{-- <div id="more">
                         <div class="row mb-4">
